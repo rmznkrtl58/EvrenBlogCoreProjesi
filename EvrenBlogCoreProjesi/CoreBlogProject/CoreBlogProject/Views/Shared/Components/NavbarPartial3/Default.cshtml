@@ -1,0 +1,29 @@
+﻿@model List<Message>
+<li class="nav-item dropdown">
+    <a class="nav-link" data-toggle="dropdown" href="#">
+        <i class="far fa-comments"></i>
+        <span class="badge badge-danger navbar-badge">3</span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+        @foreach(var x in Model){
+        <div class="dropdown-divider"></div>
+        <a href="/Message/MessageContent/@x.MessageId" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+                <img src="@x.SenderUser.WriterImage" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                <div class="media-body">
+                    <h3 class="dropdown-item-title">
+                        @x.SenderUser.NameSurname
+                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                    </h3>
+                    <p class="text-sm">Konu: @x.Subject</p>
+                    
+                    <p style="margin-top:4px" class="text-sm text-muted"><i class="far fa-clock mr-1"></i>@Convert.ToDateTime(x.MessageDate).ToString("dd/MM/yyyy")</p>
+                </div>
+            </div>
+            <!-- Message End -->
+        </a>
+        }
+        <a href="/Message/Index/" class="dropdown-item dropdown-footer">Tüm Mesajlar</a>
+    </div>
+</li>

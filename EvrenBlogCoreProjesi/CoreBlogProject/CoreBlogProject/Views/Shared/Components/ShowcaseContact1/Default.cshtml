@@ -1,0 +1,27 @@
+﻿@using EntityLayer.Concrete
+@model List<Communication>
+<div class="col-lg-4">
+    @foreach(var x in Model){
+    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+        <i class="bi bi-geo-alt flex-shrink-0"></i>
+        <div>
+            <h3>Adres:</h3>
+            <p>@x.Address</p>
+        </div>
+    </div><!-- End Info Item -->
+    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+        <i class="bi bi-telephone flex-shrink-0"></i>
+        <div>
+            <h3>Telefon:</h3>
+            <p>@x.Phone</p>
+        </div>
+    </div>
+    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+        <i class="bi bi-envelope flex-shrink-0"></i>
+        <div>
+            <h3>E-posta:</h3>
+            <p>@x.Mail</p>
+        </div>
+    </div>
+    }
+</div>

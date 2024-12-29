@@ -1,0 +1,12 @@
+﻿@model List<Category>
+<div class="tags-widget widget-item">
+
+    <h3 class="widget-title">Kategoriler</h3>
+    <ul>
+        @foreach(var x in Model)
+        {
+        <li><a href="#">@x.CategoryName</a></li>
+        }
+    </ul>
+
+</div>

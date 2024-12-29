@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Showcase/Views/Shared/_ShowcaseLayout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<body class="index-page">
+    <main class="main">
+     @await Component.InvokeAsync("SliderPartial")
+        <section id="trending-category" class="trending-category section">
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="container" data-aos="fade-up">
+                    <div class="row g-5">
+                        @await Component.InvokeAsync("Feature1Partial")
+
+                        @await Component.InvokeAsync("Feature2Partial")
+
+                    </div> 
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+</body>
+
+</html>
+

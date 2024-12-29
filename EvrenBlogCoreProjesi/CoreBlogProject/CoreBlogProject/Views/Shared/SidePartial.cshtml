@@ -1,0 +1,155 @@
+﻿<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="../../index3.html" class="brand-link">
+        <img src="~/adminweb/dist/img/AdminLTELogo.png"
+             alt="AdminLTE Logo"
+             class="brand-image img-circle elevation-3"
+             style="opacity: .8">
+        <span class="brand-text font-weight-light">Admin Paneli</span>
+    </a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user (optional) -->
+        @await Component.InvokeAsync("SidebarNameArea")
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <p>
+                            İşlemler
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="/AreaWriter/Default/Index/" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Profilim
+                        </p>
+                    </a>
+                </li>
+               
+                <li class="nav-item has-treeview">
+                    <a href="/AreaWriter/Blog/Index/" class="nav-link">
+                        <i class="nav-icon fas fa-list"></i>
+                        <p>
+                            Bloglarım
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="/Message/Index/" class="nav-link">
+                        <i class="nav-icon 	fa fa-envelope"></i>
+                        <p>
+                            Gelen Kutusu
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="/Message/SendBox" class="nav-link">
+                        <i class="nav-icon fa fa-paper-plane"></i>
+                        <p>
+                            Giden Kutusu
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="/Announcement/Index/" class="nav-link">
+                        <i class="nav-icon  fa fa-question-circle"></i>
+                        <p>
+                            Duyurular
+                        </p>
+                    </a>
+                </li>
+                @if (User.IsInRole("Admin"))
+                {
+                    <li class="nav-item has-treeview">
+                        <a href="/Category/Index/" class="nav-link">
+                            <i class="nav-icon fas fa-list-alt"></i>
+                            <p>
+                                Kategoriler
+                            </p>
+                        </a>
+                    </li>
+                <li class="nav-item has-treeview">
+                    <a href="/Writer/Index/" class="nav-link">
+                            <i class="nav-icon fa fa-address-book"></i>
+                        <p>
+                            Yazarlar
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="/Blog/Index/" class="nav-link">
+                        <i class="nav-icon fas fa-blog"></i>
+                        <p>
+                          Tüm Bloglar
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="/About/Index/" class="nav-link">
+                        <i class="nav-icon fas fa-info"></i>
+                        <p>
+                            Hakkımızda
+                        </p>
+                    </a>
+                </li>
+                
+                <li class="nav-item has-treeview">
+                    <a href="/Communication/Index/" class="nav-link">
+                            <i class="nav-icon 	fa fa-exclamation-circle"></i>
+                        <p>
+                            Web İletişim
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="/Comment/Index/" class="nav-link">
+                            <i class="nav-icon  fa fa-comment"></i>
+                        <p>
+                            Yorumlar
+                        </p>
+                    </a>
+                </li>
+                    <li class="nav-item has-treeview">
+                        <a href="/Role/Index/" class="nav-link">
+                            <i class="nav-icon fas fa-edit"></i>
+                            <p>
+                                Roller
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item has-treeview">
+                        <a href="/Role/UserList/" class="nav-link">
+                            <i class="nav-icon fas fa-edit"></i>
+                            <p>
+                                Kullanıcılar
+                            </p>
+                        </a>
+                    </li>
+                }
+              
+                <li class="nav-item has-treeview">
+                    <a href="/WebContact/Index/" class="nav-link">
+                        <i class="nav-icon fas 	fa fa-envelope-square"></i>
+                        <p>
+                            Kullanıcı Eleştirileri
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="/Login/LogOut/" class="nav-link">
+                        <i class="nav-icon fas fa-sign-out-alt"></i>
+                        <p>
+                           Çıkış
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

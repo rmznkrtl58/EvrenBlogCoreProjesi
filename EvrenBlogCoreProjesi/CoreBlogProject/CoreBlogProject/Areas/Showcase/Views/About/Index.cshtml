@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Showcase/Views/Shared/_ShowcaseLayout.cshtml";
+}
+<body class="about-page">
+    <main class="main">
+        @await Component.InvokeAsync("ShowcaseAboutPartial")
+        @await Component.InvokeAsync("ShowcaseAboutPartial2")
+    </main>
+</body>

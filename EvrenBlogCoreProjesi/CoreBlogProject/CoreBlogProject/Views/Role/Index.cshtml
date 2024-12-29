@@ -1,0 +1,38 @@
+﻿@model List<AppRole>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h3 style="font-size:20px">Rol Listesi</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr style="background-color:brown;color:white">
+                        <th style="width: 10px">#</th>
+                        <th>Rol Adı:</th>
+                        <th>Sil</th>
+                        <th>Düzenle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <th>@x.Id</th>
+                            <td>@x.Name</td>
+                            <td><a href="/Role/DeleteRole/@x.Id" class="btn btn-danger">Sil</a></td>
+                            <td><a href="/Role/EditRole/@x.Id" class="btn btn-warning">Düzenle</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <a href="/Role/AddRole/" class="btn btn-success">Yeni Role</a>
+    </div>
+</div>
+

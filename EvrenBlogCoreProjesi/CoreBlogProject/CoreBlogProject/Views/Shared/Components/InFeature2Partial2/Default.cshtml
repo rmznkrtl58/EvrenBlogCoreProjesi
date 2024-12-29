@@ -1,0 +1,27 @@
+﻿@model List<Blog>
+@* @{
+    int number = 0;
+} *@
+<div class="col-lg-4">
+    <div class="trending">
+        <h3>Trend Bloglar</h3>
+        <ul class="trending-post">
+            @foreach(var x in Model){
+            <li>
+                <a href="/Showcase/Blog/BlogDetails/@x.BlogId">
+                       @*  @for (int i = 0; i <= 5; i++)
+                        {
+                            number = i + number;
+                        } *@
+                        @* <span class="number">
+                           1
+                        </span> *@
+                    <h3>@x.BlogTitle</h3>
+                    <span class="author">@x.AppUser.NameSurname</span>
+                </a>
+            </li>
+            }
+        </ul>
+    </div>
+
+</div>

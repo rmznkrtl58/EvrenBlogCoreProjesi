@@ -1,0 +1,17 @@
+﻿@model List<Blog>
+<div class="col-lg-4">
+    @foreach(var x in Model){
+    <div class="post-entry lg">
+        <a href="blog-details.html"><img src="@x.BlogImage" alt="" class="img-fluid"></a>
+        <div class="post-meta"><span class="date">@x.Category.CategoryName</span> <span class="mx-1">•</span> <span>@Convert.ToDateTime(x.BlogDate).ToString("dd/MM/yyyy")</span></div>
+            <h2><a href="/Showcase/Blog/BlogDetails/@x.BlogId">@x.BlogTitle</a></h2>
+        <p class="mb-4 d-block">@x.BlogContent.Substring(0,x.BlogContent.Substring(0,200).LastIndexOf(" "))<a href="/Showcase/Blog/BlogDetails/@x.BlogId" style="color:red">.....</a></p>
+        <div class="d-flex align-items-center author">
+            <div class="photo"><img src="@x.AppUser.WriterImage" alt="" class="img-fluid"></div>
+            <div class="name">
+                <h3 class="m-0 p-0">@x.AppUser.NameSurname</h3>
+            </div>
+        </div>
+    </div>
+    }
+</div>

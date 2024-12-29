@@ -1,0 +1,53 @@
+﻿@model AppUser
+@{
+    ViewData["Title"] = "Writerİnfo";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div class="col-md-12">
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Yazar Güncelleme Paneli</h3>
+        </div>
+        <form role="form" method="get" >
+            <div class="card-body">
+                <div class="form-group">
+                    <div>
+                        <label for="exampleInputEmail1">Yazarın Adı Soyadı:</label>
+                        <input disabled type="text" class="form-control" value="@Model.NameSurname" name="NameSurname" id="exampleInputEmail1" placeholder="Ad Soyad">
+                        @Html.ValidationMessageFor(x => x.NameSurname, "", new { @class = "text-primary" })
+                    </div>
+                    <div style="margin-top:10px">
+                        <label for="exampleInputEmail1">Yazarın Mail Adresi:</label>
+                        <input disabled type="email" class="form-control" value="@Model.Email" name="Mail" id="exampleInputEmail1" placeholder="E-posta">
+                        @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-primary" })
+                    </div>
+                    <div style="margin-top:10px">
+                        <label for="exampleInputEmail1">Yazarın Mesleği:</label>
+                        <input disabled type="text" class="form-control" name="WriterStatus" value="@Model.WriterStatus" id="exampleInputEmail1" placeholder="Meslek">
+                        @Html.ValidationMessageFor(x => x.WriterStatus, "", new { @class = "text-primary" })
+                    </div>
+                    <div style="margin-top:10px">
+                        <label for="exampleInputEmail1">Yazar Adresi:</label>
+                        <input disabled type="text" class="form-control" name="WriterAddress" value="@Model.WriterAddress" id="exampleInputEmail1" placeholder="Adres">
+                        @Html.ValidationMessageFor(x => x.WriterAddress, "", new { @class = "text-primary" })
+                    </div>
+                    <div style="margin-top:10px">
+                        <label for="exampleInputEmail1">Yazar Resim Url:</label>
+                        <input disabled type="text" class="form-control" name="WriterImage" value="@Model.WriterImage" id="exampleInputEmail1" placeholder="Resim ">
+                        @Html.ValidationMessageFor(x => x.WriterImage, "", new { @class = "text-primary" })
+                    </div>
+                    <div style="margin-top:10px">
+                        <label for="exampleInputEmail1">Yazar Açıklama:</label>
+                        <textarea name="WriterDescription" class="form-control" disabled>@Model.WriterDescription</textarea>
+                        @Html.ValidationMessageFor(x => x.WriterDescription, "", new { @class = "text-primary" })
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+

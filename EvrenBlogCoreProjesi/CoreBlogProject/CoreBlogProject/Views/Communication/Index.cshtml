@@ -1,0 +1,59 @@
+﻿@model Communication
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini"> 
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-info">
+                    <div class="card-header">
+                        <h3 class="card-title">İletişim Bilgilerini Düzenleme</h3>
+                    </div>
+                    <div class="card-body">
+                        @using (Html.BeginForm("Index", "Communication", FormMethod.Post))
+                        {
+                            @Html.HiddenFor(x => x.CommunicationId)
+                            <div class="form-group">
+                                <label>Adresimiz:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-info"></i></span>
+                                    </div>
+                                    @Html.TextAreaFor(x => x.Address, new { @class = "form-control", @placeholder = "Adres", @rows = 1 })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Telefon Numaramız:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-info"></i></span>
+                                    </div>
+                                    @Html.TextAreaFor(x => x.Phone, new { @class = "form-control", @placeholder = "Telefon", @rows =1 })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>E-posta Adresimiz:</label>
+
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-info"></i></span>
+                                    </div>
+                                    @Html.TextAreaFor(x => x.Mail, new { @class = "form-control", @placeholder = "E-posta", @rows = 1 })
+                                </div>
+                            </div>
+                            <button class="btn btn-success">Güncelle</button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <aside class="control-sidebar control-sidebar-dark">
+    </aside>
+</body>
+</html>
+

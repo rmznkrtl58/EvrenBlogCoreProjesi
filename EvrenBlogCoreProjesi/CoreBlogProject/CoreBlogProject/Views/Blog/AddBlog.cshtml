@@ -1,0 +1,49 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "AddBlog";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div class="col-md-12">
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Blog Ekleme Paneli</h3>
+        </div>
+        @using (Html.BeginForm("AddBlog","Blog",FormMethod.Post)){
+            <div class="card-body">
+                <div class="form-group">
+                    <div>
+                        <label for="exampleInputEmail1">Blog Başlık:</label>
+                        @Html.TextBoxFor(x=>x.BlogTitle,new{@class="form-control",@placeholder="Başlık"})
+                        @Html.ValidationMessageFor(x => x.BlogTitle, "", new { @class = "text-info" })
+                    </div>
+                    <div style="margin-top:10px">
+                        <label for="exampleInputEmail1">Kategori Seçiniz:</label>
+                        @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.comboboxC, new { @class = "form-control" })
+                    </div>
+                    <div style="margin-top:10px">
+                        <label for="exampleInputEmail1">Yazar Seçiniz:</label>
+                        @Html.DropDownListFor(x => x.AppUserId, (List<SelectListItem>)ViewBag.comboboxU, new { @class = "form-control" })
+                        </div>
+                    <div style="margin-top:10px">
+                        <label for="exampleInputEmail1">Blog Resim:</label>
+                        @Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control", @placeholder = "Resim" })
+                        @Html.ValidationMessageFor(x => x.BlogImage,"", new { @class = "text-info" })
+                    </div>
+                    <div style="margin-top:10px">
+                        <label for="exampleInputEmail1">Blog İçerik:</label>
+                        @Html.TextAreaFor(x => x.BlogContent, new { @class = "form-control", @rows = 7, @placeholder = "İçerik" })
+                        @Html.ValidationMessageFor(x => x.BlogContent,"", new { @class = "text-info" })
+                    </div>
+                    <div>
+                        <button style="margin-top:8px" class="btn btn-success">Kaydet</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+
+

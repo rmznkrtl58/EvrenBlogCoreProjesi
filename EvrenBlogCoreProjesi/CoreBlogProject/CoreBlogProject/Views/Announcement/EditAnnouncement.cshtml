@@ -1,0 +1,31 @@
+﻿@model Announcement
+@{
+    ViewData["Title"] = "EditAnnouncement";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div class="col-md-12">
+    <div class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">Duyuru Güncelleme Paneli</h3>
+        </div>
+        <form role="form" method="post">
+            @Html.HiddenFor(x=>x.Id)
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Konu:</label>
+                    <input type="text" class="form-control" value="@Model.Subject" name="Subject" id="exampleInputEmail1" placeholder="Konu">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Açıklama:</label>
+                    <input type="text" class="form-control" value="@Model.Description" name="Description" id="exampleInputEmail1" placeholder="Açıklama">
+                    <div>
+                        <button style="margin-top:8px" class="btn btn-success">Güncelle</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

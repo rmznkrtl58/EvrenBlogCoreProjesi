@@ -1,0 +1,70 @@
+﻿<section id="comment-form" class="comment-form section">
+    <div class="container">
+        <form method="post" action="/Showcase/Comment/LeaveAComment/">
+            <h4>Bir Yorum Bırak  </h4>
+            <p>*Mail adresleriniz çerezlerde kullanılacaktır.</p>
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <input name="NameSurname" id="txtname" type="text" class="form-control" placeholder="Adınız Soyadınız" required="">
+@*                     <input name="NameSurname" id="txtid" value="@ViewData["blogid"]" type="hidden" class="form-control" placeholder="Adınız Soyadınız">
+ *@                </div>
+                <div class="col-md-6 form-group">
+                    <input name="Mail" type="text" id="txtmail" class="form-control" placeholder="E-Posta adresiniz" required="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col form-group">
+                    <textarea name="CommentContent" id="txtcontent" class="form-control" placeholder="Yorumunuz" required=""></textarea>
+                </div>
+            </div>
+            <div class="text-center">
+                <button id="btnadd" class="btn btn-primary">Yorum Yap</button>
+            </div>
+        </form>
+    </div>
+</section>
+@*AJAX İŞLEMLERİ*@
+@section Scripts {
+    <script type="text/javascript">
+        $("#btnadd").click(function () {
+            let values =//values değişkeni oluşturdum
+            {
+                NameSurname: $("#txtname").val(),//deneyim tablomda eklenmesi gereken sütunlarıma
+                Mail: $("#txtmail").val(), //atamalarımı yapıyorum inputlardan alıyorum verileri
+                CommentContent: $("#txtcontent").val() //atamalarımı yapıyorum inputlardan alıyorum verileri
+            };
+            $.ajax(
+                {
+                    type: "post",
+                    url: "/Showcase/Comment/LeaveAComment/",
+                    data: values, //veriler nereden gelecek
+                    success: function (funk1)//yukarıdaki işlem başarılıysa işlemleri funk1 adlı değişkene ata
+                    {
+                        let result = jQuery.parseJSON(funk1);//funk değişkenime atanmış işlemdeki listeleri json türüne çevir
+                        alert(result.NameSurname + "Yorum Yapıldı");
+                    }
+                });
+        });
+        // $("#btnadd").click(function () {
+        //     let values =//values adında değişken tanımladım
+        //     {
+        //         NameSurname: $("#txtname").val(),
+        //         // BlogId: $("#txtid").val(),
+        //         Mail: $("#txtmail").val(),//yorum tablomdaki gerekli sütunlara gelecek değerleri eşleştirdim
+        //         CommentContent: $("#txtcontent").val()
+        //     };
+        //     $.ajax(
+        //         {
+        //             type: "post",
+        //             url: "/Showcase/Comment/LeaveAComment/",
+        //             data: values,//veriler nereden gelecek
+        //             success: function (funk)//yukardaki işlemler başarılıysa
+        //             {
+        //                 console.log(result);
+        //                 alert(result.NameSurname + "Yorum Yapıldı");
+        //             }
+        //         });
+        // });
+    </script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+}

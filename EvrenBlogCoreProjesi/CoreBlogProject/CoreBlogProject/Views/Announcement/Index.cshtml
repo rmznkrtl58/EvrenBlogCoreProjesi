@@ -1,0 +1,45 @@
+﻿@model List<Announcement>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h3 style="font-size:20px">Duyurular</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr style="background-color:darkgreen;color:white">
+                        <th style="width: 10px">#</th>
+                        <th>Kategori Adı:</th>
+                        <th>Durum</th>
+                        <th>Sil</th>
+                        <th>Düzenle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <th>@x.Id</th>
+                            <td>@x.Subject</td>
+                            <td>@x.Description</td>
+                            <td><a href="/Announcement/DeleteAnnouncemet/@x.Id" class="btn btn-danger">Sil</a></td>
+                            <td><a href="/Announcement/EditAnnouncement/@x.Id" class="btn btn-warning">Düzenle</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <a href="/Announcement/AddAnnouncemet/" class="btn btn-primary">Yeni Duyuru</a>
+    </div>
+</div>
+
+

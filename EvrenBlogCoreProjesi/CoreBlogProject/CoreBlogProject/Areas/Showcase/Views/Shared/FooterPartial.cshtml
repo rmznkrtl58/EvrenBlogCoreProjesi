@@ -1,0 +1,44 @@
+﻿<footer id="footer" class="footer dark-background">
+    <div  class="container footer-top">
+        <div style="margin-left:180px" class="row gy-4">
+           @await Component.InvokeAsync("FooterContact")
+            <div class="col-lg-2 col-md-3 footer-links">
+                <h4>Useful Links</h4>
+                <ul>
+                    <li><a href="/Showcase/Default/Index/">Ana Sayfa</a></li>
+                    <li><a href="/Showcase/Blog/Index/">Bloglar</a></li>
+                    <li><a href="/Showcase/Contact/Index/">İletişim</a></li>
+                    <li><a href="/Showcase/About/Index/">Hakkımızda</a></li>
+                    <li><a href="/Login/Index/">Giriş Yapın</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-3 footer-links">
+                <h4>Kategoriler</h4>
+                <ul>
+                    <li><a href="#">Sağlık</a></li>
+                    <li><a href="#">Yaşam</a></li>
+                    <li><a href="#">Bilim</a></li>
+                    <li><a href="#">Yatırım</a></li>
+                    <li><a href="#">Eğlence</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-3 footer-links">
+                <h4>Kategoriler</h4>
+                <ul>
+                    <li><a href="#">Teknoloji</a></li>
+                    <li><a href="#">Eğitim</a></li>
+                    <li><a href="#">Otomotiv</a></li>
+                    <li><a href="#">Oyun</a></li>
+                    <li><a href="#">Spor</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container copyright text-center mt-4">
+        <p>©<span>Copyright</span><strong class="px-1 sitename">@DateTime.Now.Year</strong><span>Tüm Hakları Saklıdır.</span></p>
+        <div class="credits">
+            Asp.Net Core 5.0<a href="https://bootstrapmade.com/">Blog Projesi</a>
+        </div>
+    </div>
+</footer>

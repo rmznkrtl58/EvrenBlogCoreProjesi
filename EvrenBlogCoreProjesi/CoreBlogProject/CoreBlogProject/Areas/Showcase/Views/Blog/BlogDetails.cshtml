@@ -1,0 +1,76 @@
+﻿@using EntityLayer.Concrete
+@model Blog
+@{
+    ViewData["Title"] = "BlogDetails";
+    Layout = "~/Areas/Showcase/Views/Shared/_ShowcaseLayout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<body class="single-post-page">
+    <main class="main">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-8">
+
+                    <!-- Blog Details Section -->
+                    <section id="blog-details" class="blog-details section">
+                        <div class="container">
+
+                            <article class="article">
+                                <div class="post-img">
+                                    <img src="@Model.BlogImage" alt="" class="img-fluid">
+                                </div>
+                                <h2 class="title">@Model.BlogTitle</h2>
+                                <div class="meta-top">
+                                    <ul>
+                                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">@Model.AppUser.NameSurname</a></li>
+                                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2020-01-01">@Convert.ToDateTime(Model.BlogDate).ToString("dd/MMM/yyyy")</time></a></li>
+                                        <li class="d-flex align-items-center"><i class="bi bi-tags"></i> <a href="blog-details.html">@Model.Category.CategoryName</a></li>
+                                    </ul>
+                                </div>
+                                <div class="content">
+                                    <p>
+                                        @Model.BlogContent
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+
+
+
+
+                    @await Component.InvokeAsync("CommentListInBlogDetails", new { id = ViewBag.id })
+
+                    @await Html.PartialAsync("~/Areas/Showcase/Views/Comment/LeaveAComment.cshtml");
+
+                </div>
+
+                <div class="col-lg-4 sidebar">
+
+                    <div class="widgets-container">
+
+                        @await Component.InvokeAsync("ShowcaseBlogDetailsAdmin", new { id = ViewBag.id })
+
+
+                        <div class="search-widget widget-item">
+
+                            <h3 class="widget-title">Arama Yap</h3>
+                            <form action="">
+                                <input type="text" placeholder="Aranacak Kelime...">
+                                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+                            </form>
+                        </div>
+
+                        @await Component.InvokeAsync("ShowcaseBlogsRecentPosts")
+
+                        @await Component.InvokeAsync("ShowcaseBlogsCategorys")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+

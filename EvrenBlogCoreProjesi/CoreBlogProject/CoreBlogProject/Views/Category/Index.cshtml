@@ -1,0 +1,52 @@
+﻿@model IPagedList<Category>
+@using X.PagedList.Mvc.Core
+@using X.PagedList
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    string text = "";
+}
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h3 style="font-size:20px">Kategori Listesi</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr style="background-color:chartreuse">
+                        <th style="width: 10px">#</th>
+                        <th>Kategori Adı:</th>
+                        <th>Durum</th>
+                        <th>Sil</th>
+                        <th>Düzenle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var x in Model){
+                        if (x.CategoryStatus == true)
+                        {
+                            text = "Aktif";
+                        }
+                        if (x.CategoryStatus == false)
+                        {
+                            text = "Pasif";
+                        }
+                        <tr>
+                        <th>@x.CategoryId</th>
+                        <td>@x.CategoryName</td>
+                        <td>@text</td>
+                        <td><a href="/Category/DeleteCategory/@x.CategoryId" class="btn btn-danger">Sil</a></td>
+                            <td><a href="/Category/EditCategory/@x.CategoryId" class="btn btn-warning">Düzenle</a></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+      <a href="/Category/AddCategory/" class="btn btn-success">Yeni Kategori</a>
+        <div class="card-footer clearfix">
+            @Html.PagedListPager((IPagedList<Category>)Model, page => Url.Action("Index", new { page }))
+            </div>
+    </div>
+</div>

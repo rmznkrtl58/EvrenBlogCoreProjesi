@@ -1,0 +1,20 @@
+﻿@model List<Comment>
+<section id="blog-comments" class="blog-comments section">
+    <div class="container">
+        <h4 class="comments-count">@Model.Count Yorum</h4>
+        @foreach(var x in Model){
+        <div id="comment-1" class="comment">
+            <div class="d-flex">
+                    <div class="comment-img"><img src="~/adminweb/dist/img/user (8).png" alt=""></div>
+                <div>
+                    <h5><a href="">@x.NameSurname</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i>Yanıtla</a></h5>
+                    <time datetime="2020-01-01" style="font-weight:bold;color:red">@Convert.ToDateTime(x.CommentDate).ToString("dd/MM/yyyy")</time>
+                    <p>
+                       @x.CommentContent
+                    </p>
+                </div>
+            </div>
+        </div>
+        }
+        </div>
+</section>

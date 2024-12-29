@@ -1,0 +1,42 @@
+﻿@model List<Comment>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h3>Yorumlar</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr style="background-color:burlywood;color:black">
+                        <th>Ad Soyad</th>
+                        <th>Blog</th>
+                        <th>Mail</th>
+                        <th>Tarih</th>
+                        <th>Detaylar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <th>@x.NameSurname</th>
+                            <td>@x.Blog.BlogTitle</td>
+                            <th>@x.Mail</th>
+                            <td>@Convert.ToDateTime(x.CommentDate).ToString("dd/MMM/yyyy")</td>
+                            <td><a href="/Comment/EditComment/@x.CommentId" class="btn btn-warning">Detay</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,31 @@
+﻿@model Announcement
+@{
+    ViewData["Title"] = "AddAnnouncemet";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div class="col-md-12">
+    <div class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">Duyuru Ekleme Paneli</h3>
+        </div>
+        <form role="form" method="post">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Konu:</label>
+                    <input type="text" class="form-control" name="Subject" id="exampleInputEmail1" placeholder="Konu">
+                    @Html.ValidationMessageFor(x => x.Subject, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Açıklama:</label>
+                    <input type="text" class="form-control" name="Description" id="exampleInputEmail1" placeholder="Açıklama">
+                    @Html.ValidationMessageFor(x => x.Description, "", new { @class = "text-danger" })
+                    <div>
+                        <button style="margin-top:8px" class="btn btn-success">Kaydet</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

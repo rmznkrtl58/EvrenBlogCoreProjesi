@@ -1,0 +1,40 @@
+﻿@model List<Blog>
+<section id="slider" class="slider section dark-background">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper init-swiper">
+            <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "slidesPerView": "auto",
+                  "centeredSlides": true,
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  },
+                  "navigation": {
+                    "nextEl": ".swiper-button-next",
+                    "prevEl": ".swiper-button-prev"
+                  }
+                }
+            </script>
+            <div class="swiper-wrapper">
+                @foreach(var x in Model){
+                <div class="swiper-slide" style="background-image: url('@x.BlogImage')">
+                    <div class="content">
+                        <h2><a href="/Showcase/Blog/BlogDetails/@x.BlogId">@x.BlogTitle</a></h2>
+                    </div>
+                </div>
+                }
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+    </div>
+</section>

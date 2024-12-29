@@ -1,0 +1,39 @@
+﻿@model List<About>
+<section id="about" class="about section">
+    <div class="container">
+        <div class="row gy-4">
+            @foreach(var x in Model){
+            <div style="margin-top:-10px" class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+                <p class="who-we-are">BİZ KİMİZ?</p>
+                <h3>@x.AboutTitle</h3>
+                <p style="font-size:18px">
+                   @x.AboutSubTitle
+                </p>
+                <ul>
+                    <li><i class="bi bi-check-circle"></i> <span>@x.item1</span></li>
+                        <li><i class="bi bi-check-circle"></i> <span>@x.item2</span></li>
+                        <li><i class="bi bi-check-circle"></i> <span>@x.item3</span></li>
+                        <li><i class="bi bi-check-circle"></i> <span>@x.item4</span></li>
+                </ul>
+            </div>
+            }
+            <div  class="col-lg-6 about-images" data-aos="fade-up" data-aos-delay="200">
+                <div class="row gy-4">
+                    <div class="col-lg-6">
+                        <img src="@ViewBag.i1" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row gy-4">
+                            <div class="col-lg-12">
+                                <img style="height:195px" src="@ViewBag.i2" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-lg-12">
+                                <img style="height:210px" src="@ViewBag.i3" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,17 @@
+﻿@model List<Blog>
+<div class="col-lg-8">
+    <div class="row g-5">
+        <div class="col-lg-4 border-start custom-border">
+            @foreach (var x in Model)
+            {
+                <div class="post-entry">
+                    <a href="/Showcase/Blog/BlogDetails/@x.BlogId"><img src="@x.BlogImage" alt="" class="img-fluid"></a>
+                    <div class="post-meta"><span class="date">@x.Category.CategoryName</span> <span class="mx-1">•</span> <span>@Convert.ToDateTime(x.BlogDate).ToString("dd/MM/yyyy")</span></div>
+                    <h2><a href="/Showcase/Blog/BlogDetails/@x.BlogId">@x.BlogTitle</a></h2>
+                </div>
+            }
+        </div>
+        @await Component.InvokeAsync("InFeature2Partial")
+        @await Component.InvokeAsync("InFeature2Partial2")
+    </div>
+</div>

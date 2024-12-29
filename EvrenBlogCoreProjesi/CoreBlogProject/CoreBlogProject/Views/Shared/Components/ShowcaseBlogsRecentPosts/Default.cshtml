@@ -1,0 +1,13 @@
+﻿@model List<Blog>
+<div class="recent-posts-widget widget-item">
+    <h3 class="widget-title">Son Eklenen Postlar</h3>
+    @foreach(var x in Model){
+    <div class="post-item">
+        <img src="@x.BlogImage" alt="" class="flex-shrink-0">
+        <div>
+            <h4><a href="/Showcase/Blog/BlogDetails/@x.BlogId/">@x.BlogTitle</a></h4>
+                <time datetime="2020-01-01"><span style="font-weight:bold;color:blue">Tarih:</span> @Convert.ToDateTime(x.BlogDate).ToString("dd/MM/yyyy")</time>
+        </div>
+    </div>
+    }
+</div>

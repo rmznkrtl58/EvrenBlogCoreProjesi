@@ -1,0 +1,57 @@
+﻿@using X.PagedList.Mvc.Core
+@using X.PagedList
+@model IPagedList<Blog>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    string text = "";
+}
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h3 style="font-size:20px">Tüm Bloglar</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr style="background-color:aqua">
+                        <th>Blog Başlık:</th>
+                        <th>Kategori:</th>
+                        <th>Yazar:</th>
+                        <th>Tarih:</th>
+                        <th>Durum:</th>
+                        <th>Sil</th>
+                        <th>Düzenle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in Model)
+                    {
+                        if (x.BlogStatus == true)
+                        {
+                            text = "Aktif";
+                        }
+                        if (x.BlogStatus == false)
+                        {
+                            text = "Pasif";
+                        }
+                        <tr>
+                            <th>@x.BlogTitle</th>
+                            <td>@x.Category.CategoryName</td>
+                            <td>@x.AppUser.NameSurname</td>
+                             <td>@Convert.ToDateTime(x.BlogDate).ToString("dd/MMM/yyyy")</td>
+                            <td>@text</td>
+                            <td><a href="/Blog/DeleteBlog/@x.BlogId" class="btn btn-danger">Sil</a></td>
+                            <td><a href="/Blog/EditBlog/@x.BlogId" class="btn btn-warning">Düzenle</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <a href="/Blog/AddBlog/" class="btn btn-success">Yeni Blog</a>
+        <div style="margin-top:8px;margin-left:15px">
+            @Html.PagedListPager((IPagedList<Blog>)Model,page=>Url.Action("Index",new{page}))
+        </div>
+    </div>
+</div>

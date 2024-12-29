@@ -1,0 +1,26 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+          <div class="col-md-12">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Kategori Ekleme Paneli</h3>
+              </div>
+              <form role="form" method="post">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Kategori Adı:</label>
+                    <input type="text" class="form-control" name="CategoryName" id="exampleInputEmail1" placeholder="Kategori">
+                    @Html.ValidationMessageFor(x=>x.CategoryName,"",new{@class="text-danger"})
+                    <div>
+                    <button style="margin-top:8px" class="btn btn-success">Kaydet</button>
+                    </div>
+                </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+

@@ -1,0 +1,37 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+@await Html.PartialAsync("_HeadPartial")
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        @await Html.PartialAsync("NavbarPartial")
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        @await Html.PartialAsync("SidePartial")
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+  <br />
+            <section class="content">
+                <div class="row">
+                    @RenderBody()
+                </div>
+            </section>
+        </div>
+       @await Html.PartialAsync("FooterPartial")
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    @await Html.PartialAsync("ScriptPartial")
+</body>
+</html>
+

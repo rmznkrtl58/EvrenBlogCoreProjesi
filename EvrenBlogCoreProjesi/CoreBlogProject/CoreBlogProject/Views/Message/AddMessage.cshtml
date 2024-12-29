@@ -1,0 +1,59 @@
+﻿@model SendMessageModelView
+@{
+    ViewData["Title"] = "AddMessage";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Yeni Mesaj</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/adminweb/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/adminweb/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="~/adminweb/plugins/summernote/summernote-bs4.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card card-success card-outline">
+                                <div class="card-header">
+                                    <h3 class="card-title">Yeni Mesaj Oluşturun</h3>
+                                </div>
+                                <form method="post" >
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="Kime:" asp-for="Receiver">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="Konu:" asp-for="Subject" >
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea class="form-control" name="Content" asp-for="Content" style="height: 300px">
+                    </textarea>
+                                    </div>
+                            <button class="btn btn-success"><i class="far fa-envelope"></i>  Mesaj Gönder</button>
+
+                                </div>
+                    </form>
+                </div>
+                        </div>
+                    </div>
+                </div>
+    <script src="~/adminweb/dist/js/demo.js"></script>
+    <script src="~/adminweb/plugins/summernote/summernote-bs4.min.js"></script>
+    <script>
+        $(function () {
+            //Add text editor
+            $('#compose-textarea').summernote()
+        })
+    </script>
+</body>
+</html>
+
+

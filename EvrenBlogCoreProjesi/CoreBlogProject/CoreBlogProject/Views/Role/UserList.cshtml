@@ -1,0 +1,39 @@
+﻿@model List<AppUser>
+@{
+    ViewData["Title"] = "UserList";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h3 style="font-size:20px">Kullanıcı Listesi</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr style="background-color:crimson;color:white">
+                        <th style="width: 10px">#</th>
+                        <th>Kullanıcı Adı:</th>
+                        <th>Rol Ata</th>
+                        <th>Düzenle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <th>@x.Id</th>
+                            <td>@x.UserName</td>
+                            <td><a href="/Role/UserRoleAssing/@x.Id" class="btn btn-info">Ata</a></td>
+                            <td><a href="/Role/DeleteUserRole/@x.Id" class="btn btn-warning">Düzenle</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <a href="/Role/Index/" class="btn btn-success">Roller</a>
+    </div>
+</div>
+
+
